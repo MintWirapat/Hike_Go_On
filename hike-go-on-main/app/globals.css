@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 142 76% 36%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 142 76% 36%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 142 76% 36%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 142 76% 36%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom styles for tabs */
+[role="tab"][data-state="active"] {
+  color: #15803d !important; /* text-green-700 */
+  font-weight: bold !important;
+  background-color: white !important;
+}
+
+/* ปรับปรุงการจัดวางตำแหน่งของแท็บ */
+[role="tablist"] {
+  display: flex !important;
+  width: 100% !important;
+  justify-content: flex-start !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: none !important;
+  padding: 4px !important;
+}
+
+[role="tablist"]::-webkit-scrollbar {
+  display: none !important;
+}
+
+[role="tab"] {
+  flex-shrink: 0 !important;
+  text-align: center !important;
+  margin-right: 4px !important;
+  white-space: nowrap !important;
+  touch-action: manipulation !important;
+}
+
+/* ปรับปรุงการแสดงผลของแท็บบนมือถือ */
+@media (max-width: 640px) {
+  [role="tab"] {
+    font-size: 13px !important;
+    padding: 8px 12px !important;
+    min-height: 40px !important;
+    min-width: auto !important;
+    margin-right: 2px !important;
+  }
+
+  [role="tablist"] {
+    height: auto !important;
+    padding: 4px !important;
+  }
+
+  /* เฉพาะหน้าแคมป์ */
+  .campsite-tabs [role="tab"] {
+    min-width: auto !important;
+    padding: 8px 10px !important;
+  }
+}
+
+/* เพิ่มสไตล์สำหรับการแสดงผลบนมือถือ */
+@layer utilities {
+  /* ซ่อน scrollbar แต่ยังสามารถเลื่อนได้ */
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+}
+
+/* ปรับปรุงการแสดงผลปุ่มบนมือถือ */
+button,
+.button,
+[type="button"],
+[type="submit"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* ปรับปรุงการแสดงผลข้อความบนมือถือ */
+.mobile-text {
+  @apply text-sm sm:text-base;
+}
+
+/* ปรับปรุงการแสดงผลช่องว่างบนมือถือ */
+.mobile-spacing {
+  @apply p-3 sm:p-4 md:p-6;
+}
+
+/* ปรับปรุงการแสดงผลฟอร์มบนมือถือ */
+input,
+select,
+textarea {
+  @apply text-sm sm:text-base;
+  font-size: 16px; /* ป้องกัน iOS ซูมเข้าเมื่อกดที่ input */
+}
+
+/* ปรับปรุงการแสดงผลรูปภาพบนมือถือ */
+img {
+  @apply max-w-full h-auto;
+}
+
+/* ปรับปรุงการแสดงผลลิงก์บนมือถือ */
+a {
+  min-height: 44px;
+  display: inline-flex;
+}
